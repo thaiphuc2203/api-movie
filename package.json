@@ -1,0 +1,22 @@
+{
+  "name": "api-movie",
+  "version": "1.0.0",
+  "description": "api-movie",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaiphuc2203/api-movie.git"
+  },
+  "keywords": [
+    "thaiphuc"
+  ],
+  "author": "thaiphuc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thaiphuc2203/api-movie/issues"
+  },
+  "homepage": "https://github.com/thaiphuc2203/api-movie#readme"
+}
