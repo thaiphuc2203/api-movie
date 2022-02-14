@@ -4,30 +4,19 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import Header from "./share/Header";
+import Layout from "./share/Layout";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="wrap-content">
-        <Routes>
-          <Route path="/" element={<Header />}>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/services">
-              <Services />
-            </Route>
-            <Route path="/blog">
-              <Blog />
-            </Route>
-          </Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
