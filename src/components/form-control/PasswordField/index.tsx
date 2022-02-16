@@ -2,13 +2,13 @@ import { TextField, FormHelperText, FormControl, IconButton, InputAdornment , In
 import React, { useState } from 'react';
 import { Controller } from "react-hook-form";
 
-PasswordField.propTypes = {
+// PasswordField.propTypes = {
 
-};
+// };
 
 function PasswordField(props: any) {
 
-    const { form, name, label, disabled } = props
+    const { form, name, label } = props
     const { formState: { errors } } = form
     const hasError = errors[name]
     const [showPassword, setShowPassword] = useState(false)
@@ -39,6 +39,10 @@ function PasswordField(props: any) {
                                     </IconButton>
                                 </InputAdornment>
                             }
+                            // disabled={disabled}
+                            // error={!!hasError}
+                            // helperText={errors[name]?.message}
+                            // labelWidth={70}
                         />
                     )}
                 />

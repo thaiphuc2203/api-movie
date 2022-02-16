@@ -13,7 +13,7 @@ LoginForm.propTypes = {
     onSubmit: PropTypes.func,
 };
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles: any = makeStyles((theme: any) => ({
     root: {
         padding: theme.spacing(2, 2),
     },
