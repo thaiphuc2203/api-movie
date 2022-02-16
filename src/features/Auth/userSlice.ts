@@ -32,7 +32,7 @@ export const login: any = createAsyncThunk(
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        current: JSON.parse(localStorage.getItem(StorageKeys.USER) || "") || {},
+        current: JSON.parse(localStorage.getItem(StorageKeys.USER) || "{}") || {},
         settings: {},
     },
     reducers: {

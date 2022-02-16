@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: 'https://api.ezfrontend.com/',
+    baseURL: 'https://v4-dashboard-api.yoose.com/api/v1/',
     headers: {
         'content-type': 'application/json',
     }
@@ -25,7 +25,7 @@ axiosClient.interceptors.response.use(function (response) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     const {config, status, data} = error.response;
-    const urls = ['/auth/local/register', '/auth/local',]
+    const urls = ['/auth/local/register', '/login',]
     if(urls.includes(config.url)  && status === 400){
         const errorList = data.data || [];
         const firstError = errorList.length > 0 ? errorList[0]: {};

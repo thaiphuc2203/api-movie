@@ -1,4 +1,5 @@
-import { Avatar, Button, LinearProgress, makeStyles, Typography } from '@mui/material';
+import { Avatar, Button, LinearProgress, Typography } from '@mui/material';
+import { makeStyles } from "@mui/styles";
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';

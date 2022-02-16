@@ -9,7 +9,7 @@ const userApi = {
         return axiosClient.post(url,data);
     },
     login(data: any){
-        const url ='/auth/local';
+        const url ='/login';
         return axiosClient.post(url,data);
     },
 }

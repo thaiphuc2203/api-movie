@@ -21,7 +21,7 @@ export default function Header() {
           aria-label="basic tabs example"
         >
           {MenuList.map((el: { label: string; url: string }, index: number) => (
-            <Tab label={el.label} component={Link} to={el.url} />
+            <Tab label={el.label} key= {index} component={Link} to={el.url} />
           ))}
         </Tabs>
       </Box>

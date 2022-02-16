@@ -3,6 +3,6 @@
   { "label": "About", "url": "/about" },
   { "label": "Services", "url": "/services" },
   { "label": "Blog", "url": "/blog" },
-  { "label": "Log in", "url": "/log-in" },
+  { "label": "Log in", "url": "/login" },
   { "label": "Log out", "url": "/log-out" }
 ]

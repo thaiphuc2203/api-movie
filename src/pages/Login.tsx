@@ -5,8 +5,9 @@
 //     return <div>Login</div>;
 //   }
 // }
+
 import { unwrapResult } from '@reduxjs/toolkit';
-import { useSnackbar } from 'notistack';
+// import { useSnackbar } from 'notistack';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -23,12 +24,7 @@ function Login(props: any ) {
     const dispatch = useDispatch();
     // hiển thị thông báo
 
-    const { enqueueSnackbar } = useSnackbar();
-
-    const showNoti = (message: any , variant: any) => {
-        enqueueSnackbar(message, { variant: variant })
-    }
-
+   
     const handleSubmit = async (values: any) => {
         try {
             const action = login(values)
@@ -43,7 +39,6 @@ function Login(props: any ) {
             //do something here when register success
             console.log(user)
         } catch (error: any) {
-            showNoti(error.message, "error");
             console.log("error: ", error)
         }
     }
