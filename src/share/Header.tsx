@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Container from "@mui/material/Container";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 const MenuList = require("../fakeData/MenuList.json");
 
 export default function Header() {
@@ -25,6 +25,7 @@ export default function Header() {
           ))}
         </Tabs>
       </Box>
+      <Outlet/>
     </Container>
   );
 }
