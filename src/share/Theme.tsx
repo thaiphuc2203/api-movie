@@ -3,14 +3,10 @@ import { createTheme } from '@mui/material/styles';
 export const Theme = createTheme({
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#391400',
-      Text_Dark_Accent: '#EF6D58',
-      Text_Dark_Gray: '#391400',
-      Text_Light: '#fff',
-      Text_Light_Accent: '#EF6D58'
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
+      main: '#333',
+    },
+    secondary: {
+      main: '#fff',
     },
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
