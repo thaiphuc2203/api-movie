@@ -6,10 +6,10 @@ import { fetchMoviePopular, increment } from "../features/Movie/movieSlice";
 var _ = require('lodash');
 
 export default function Home(props: any) {
-  console.log(fetchMoviePopular(), 'xx')
-  const action = fetchMoviePopular()
+  // console.log(fetchMoviePopular(), 'xx')
+  const action = fetchMoviePopular('')
   const dispatch = useDispatch();
-  const resultAction: any = dispatch(increment(action));
+  const resultAction: any = dispatch(action);
   const movie = unwrapResult(resultAction);
   let resultMovieApi: any
   useEffect(() => {

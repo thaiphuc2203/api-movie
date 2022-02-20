@@ -2,10 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import MovieApi from '../../api/movieApi';
 
 export const fetchMoviePopular: any = createAsyncThunk('Movie/fetchMovie',
-  async () => {
+  async (payload: any) => {
     console.log('fetchMoviePopular')
-    let data: any = await MovieApi.fetchAllMoviePopular();
-    return  data
+    // let data: any = await MovieApi.fetchAllMoviePopular(payload);
+    return  await MovieApi.fetchAllMoviePopular(payload);
   }
 )
 interface ItemMOvie {
@@ -20,9 +20,14 @@ const movieSlice:any = createSlice({
     increment:(state) => {
       console.log(state ,'increment')
     }
-  }
+  },
+  // extraReducers: {
+  //   [fetchMoviePopular.fulfilled]: (state, action) =>{
+  //     console.log(state,action.payload,'extraReducers')
+  //   }
+  // }
 })
 
-
-export const { increment } = movieSlice.actions
-export default movieSlice.reducer
+const { actions, reducer } = movieSlice
+export const { increment } = actions
+export default reducer
