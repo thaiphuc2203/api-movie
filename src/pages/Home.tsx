@@ -1,22 +1,23 @@
 import React, { useEffect } from "react";
+import { unwrapResult } from '@reduxjs/toolkit';
 import { useDispatch } from "react-redux";
-import SearchBar from "../components/SearchBar/index";
 import ItemMovie from "../components/ItemMovie/index";
-import {fetchMoviePopular} from "../features/Movie/movieSlice";
+import { fetchMoviePopular, increment } from "../features/Movie/movieSlice";
 var _ = require('lodash');
 
 export default function Home(props: any) {
+  console.log(fetchMoviePopular(), 'xx')
+  const action = fetchMoviePopular()
   const dispatch = useDispatch();
+  const resultAction: any = dispatch(increment(action));
+  const movie = unwrapResult(resultAction);
   let resultMovieApi: any
   useEffect(() => {
-    resultMovieApi = dispatch(fetchMoviePopular());
   }, []);
 
   if (!!resultMovieApi) return <div>Loading</div>
-  console.log("resultMovieApi",resultMovieApi);
   return (
     <div>
-      <SearchBar />
       <ItemMovie />
     </div>
   );

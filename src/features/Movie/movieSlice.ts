@@ -1,34 +1,28 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import MovieApi from '../../api/movieApi';
 
-export const fetchMoviePopular: any = createAsyncThunk(
-  'fetchMoviePopular',
+export const fetchMoviePopular: any = createAsyncThunk('Movie/fetchMovie',
   async () => {
-    return await MovieApi.fetchMoviePopular();
+    console.log('fetchMoviePopular')
+    let data: any = await MovieApi.fetchAllMoviePopular();
+    return  data
   }
 )
+interface ItemMOvie {
+  movieID: string
+  original_title: string
+}
 
-const movieSlice = createSlice({
+const movieSlice:any = createSlice({
   name: 'movie',
-  initialState: {
-      data: []
-  },
+  initialState: [] as ItemMOvie[],
   reducers: {
-    fetchMoviePopular(state) {
-      console.log("state", state)
-      }
-  },
-  // extraReducers: {
-  //     //'user/register/fulfilled': () => {}
-  //     [register.fulfilled]: (state: any, action: any) => {
-  //         state.current = action.payload;
-  //     },
-
-  //     [login.fulfilled]: (state, action) => {
-  //         state.current = action.payload;
-  //     }
-  // }
+    increment:(state) => {
+      console.log(state ,'increment')
+    }
+  }
 })
 
-const { actions, reducer } = movieSlice
-export default reducer
+
+export const { increment } = movieSlice.actions
+export default movieSlice.reducer
