@@ -5,8 +5,8 @@ const { configureStore } = require("@reduxjs/toolkit");
 
 
 const rootReducer = {
-    user: userReducer,
     movie: movieReducer,
+    user: userReducer,
 }
 
 const store = configureStore({
