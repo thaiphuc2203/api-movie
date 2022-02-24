@@ -1,24 +1,26 @@
-import React, { useEffect } from "react";
-import { unwrapResult } from '@reduxjs/toolkit';
-import { useDispatch } from "react-redux";
-import ItemMovie from "../components/ItemMovie/index";
-import MovieApi from '../api/movieApi';
+import { Grid } from "@mui/material";
+import React, { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Movie from "../components/ItemMovie/index";
 import { fetchMoviePopular } from "../features/Movie/movieSlice";
-var _ = require('lodash');
-
+import { ItemMovie } from "../models";
 
 export default function Home(props: any) {
-
-  let resultMovieApi: any
   const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(fetchMoviePopular())
-  },[dispatch])
+  const movieList = useSelector((state: any) => state.movie);
 
-  if (!!resultMovieApi) return <div>Loading</div>
+  useEffect(() => {
+    dispatch(fetchMoviePopular());
+  }, [dispatch]);
+
+  if (!!movieList.result) return <div>Loading</div>;
   return (
-    <div>
-      <ItemMovie />
-    </div>
+    <Grid container spacing={2}>
+      {movieList.results.map((el: ItemMovie) => (
+        <Grid item xs={12} md={3}>
+          <Movie item={el} />
+        </Grid>
+      ))}
+    </Grid>
   );
 }

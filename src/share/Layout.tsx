@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const useStyles = makeStyles({
   wrapMain: {
-    marginTop: "80px",
+    marginTop: '100px',
   },
 });
 export default function Layout(props: any) {
