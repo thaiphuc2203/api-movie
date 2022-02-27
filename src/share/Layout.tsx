@@ -1,12 +1,13 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
+import { Box, Container } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 const useStyles = makeStyles({
-  wrapMain: {
-    marginTop: '100px',
+  root: {
+    marginTop: 100,
   },
 });
 export default function Layout(props: any) {
@@ -14,7 +15,8 @@ export default function Layout(props: any) {
   return (
     <React.Fragment>
       <Header />
-      <Container className={classes.wrapMain} maxWidth="sm">
+      <Container className={`wrap-root ${classes.root}`}>
+        <Outlet />
         {props.children}
       </Container>
       <Footer />

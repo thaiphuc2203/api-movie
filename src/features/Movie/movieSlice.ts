@@ -1,5 +1,5 @@
 import { ListMovie } from './../../models/movie';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import MovieApi from '../../api/movieApi';
 
 export const fetchMoviePopular: any  = createAsyncThunk('Movie/fetchMovie',
@@ -27,9 +27,9 @@ const movieSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchMoviePopular.fulfilled]: (state: any, action:any) => {
+    [fetchMoviePopular.fulfilled]: (state: any, action: PayloadAction<ListMovie>) => {
       Object.assign(state, action.payload);
-      // console.log("state", state)
+      console.log("state===", state, action)
     }
   }
  

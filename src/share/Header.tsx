@@ -11,14 +11,16 @@ const useStyles = makeStyles({
     padding: "0 20px",
     display: "flex",
     justifyContent: "space-around",
-    width: "100%",
+    width: "100%",    background: "#fff",
+
   },
   logo: {
     height: "2.5rem",
     margin: "auto 0",
     alignSelf: "center",
     display: "flex",
-    background: "#fff",
+    backgroundColor: "#ffffff!important",
+    boxShadow: "0px 0px 0px 0px rgb(0 0 0 / 0%)!important"
   },
   tabContainer: {
     maxWidth: "60%",
@@ -46,7 +48,7 @@ export default function Header() {
         <Toolbar disableGutters className={classes.appbar}>
           <Button
             variant="contained"
-            className={classes.logo}
+            className={`btn-logo ${classes.logo}`}
             href="/"
             onClick={() => setValue(0)}
           >
@@ -77,7 +79,6 @@ export default function Header() {
           </Tabs>
         </Toolbar>
       </AppBar>
-      <Outlet />
     </Container>
   );
 }
