@@ -22,14 +22,14 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function Movie(props: any): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
-  const { item } = props;
+  const { item, index } = props;
   let posterIMG = "https://image.tmdb.org/t/p/w500" + item.poster_path;
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card sx={{ maxWidth: 315 }}>
+    <Card key={index} sx={{ maxWidth: 315 }}>
       <CardMedia
         component="img"
         height="194"

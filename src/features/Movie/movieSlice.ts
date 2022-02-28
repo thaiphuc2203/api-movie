@@ -27,7 +27,7 @@ const movieSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchMoviePopular.fulfilled]: (state: any, action: PayloadAction<ListMovie>) => {
+    [fetchMoviePopular.fulfilled]: (state: ListMovie, action: PayloadAction<ListMovie>) => {
       Object.assign(state, action.payload);
       console.log("state===", state, action)
     }

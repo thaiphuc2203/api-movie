@@ -21,6 +21,11 @@ export interface ListMovie {
   total_pages: Number,
   total_results: Number,
 }
+
+export interface TitleSearch {
+  title: String,
+}
+
 // export interface rootState {
 //   movie: Object,
 //   user: Object
