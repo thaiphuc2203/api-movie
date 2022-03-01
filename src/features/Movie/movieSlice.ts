@@ -14,6 +14,19 @@ export const fetchMoviePopular: any  = createAsyncThunk('Movie/fetchMovie',
    
   }
 )
+export const fetchMovieSearch: any  = createAsyncThunk('Movie/fetchMovie',
+  async (query: string) => {
+    return MovieApi.fetchMovieSearch(query)
+    .then(function (response:any) {
+      console.log(response.data, 'search')
+      return response.data
+    })
+    .catch(function (error:any) {
+      console.log(error);
+    })
+   
+  }
+)
 
 const initialState: ListMovie = {
   page: 1,
@@ -28,6 +41,9 @@ const movieSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchMoviePopular.fulfilled]: (state: ListMovie, action: PayloadAction<ListMovie>) => {
+      Object.assign(state, action.payload);
+    },
+    [fetchMovieSearch.fulfilled]: (state: ListMovie, action: PayloadAction<ListMovie>) => {
       Object.assign(state, action.payload);
       console.log("state===", state, action)
     }
