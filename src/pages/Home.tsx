@@ -7,6 +7,7 @@ import { fetchMoviePopular, fetchMovieSearch  } from "../features/Movie/movieSli
 import { ItemMovie, ListMovie } from "../models";
 import { RootState } from "../app/index";
 import { TitleSearch }  from "../models/index"
+const _ = require('lodash');  
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -21,12 +22,16 @@ export default function Home() {
   }, [dispatch]);
 
   if (!!movieList.result) return <div>Loading</div>;
-  const handleSearch = (e: any) =>{
+  const handleSearch = (e: { target: { value: string} }) =>{
     setValueSearch({title: e.target.value})
   }
 
   const clickSearch = () => {
-    dispatch(fetchMovieSearch(valueSearch.title));
+    if (_.isEmpty(valueSearch.title)) {
+      dispatch(fetchMoviePopular())
+    } else {
+      dispatch(fetchMovieSearch(valueSearch.title));
+    }
   }
 
   return (
