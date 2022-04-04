@@ -2,11 +2,10 @@ import { Grid } from "@mui/material";
 import React, { Fragment,useState,  useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Movie from "../components/ItemMovie/index";
-import SearchBar from "../components/searchBar/index"
 import { fetchMoviePopular, fetchMovieSearch  } from "../features/Movie/movieSlice";
-import { ItemMovie, ListMovie } from "../models";
+import { ItemMovie, ListMovie, TitleSearch } from "../models";
 import { RootState } from "../app/index";
-import { TitleSearch }  from "../models/index"
+import SearchBar from "../components/searchBar";
 const _ = require('lodash');  
 
 export default function Home() {

@@ -1,0 +1,128 @@
+REACT- REDUX - REDUX TOOLKIT - SAGA
+
+
+
+Redux: 
+shallowEqual  (so sánh từng phần tử trong object), strict camparison ( so sánh hai object, chỉ so sánh 2 địa chỉ object)
+vd. const todoList = userSelector(...)
+    const id = userSelector(...)
+trong 1 component, dù hai thằng đều có thay đổi thì bất đồng bộ trong js, sẽ sắp xếp là re-render 1 lần
+
+Formik 
+project lớn: gom nhóm theo từng features, 
+
+
+
+
+Redux toolkit: 
+
+Redux toolkit là gì ?
+RTK Query ?
+RTK là một tool đi kèm khi cài đặt redux toolkit, nó giúp cho việc fetch data một cách nhanh chóng cùng với việc là một caching tool khá là hiệu quả. 
+Tracking loading state in order to show UI spinners
+Avoiding duplicate requests for the same data
+Optimistic updates to make the UI feel faster
+Managing cache lifetimes as the user interacts with the UI.
+
+ngoài ra RTK query: RTK Query supports Server Side Rendering (SSR) with Next.js via rehydration in combination with next-redux-wrapper.
+
+
+muốn hiểu saga trước tiên phải hiểu generator
+
+Generator là gì ?
+
+Generator là một object được trả về từ geneator function .
+generator và geneator function là hai cái khác nhau. Generator không thể tự tạo ra trực tiếp.
+
+ví dụ: 
+function* genrateId() {
+  yield 1;
+  console.log('continue run')
+  yield 2;
+  consle.log('end')
+  return 3;
+}
+
+const newId = genrateId();
+newId.next(); { value:1, done: false}
+newId.next(); { value:2, done: false}
+newId.next(); { value:3, done: true}
+pếit cựrt ar oạt cợưđ ểht gnôhk rotareneG .noitcnuf rotareneg ừt ềv ảrt cợưđ tcejbo àl rotareneG
+Generator là gì?
+Generatorlà object được trả về từ generatorfunction.
+Generator không thể được tạo ra trực tiếp.
+Generatorfunction
+Cú pháp:
+
+function* generateId() {
+yield 1;
+console.log('Continue to run');
+
+
+function* generateId() {
+  yield 1;
+  console.log('Continue to run');
+  yield 2;
+  console.log('Resume');
+  return 3;
+}
+const newId = generateId();
+newId.next(); // { value: 1, done: false }
+newId.next(); // { value: 2, done: false }
+newId.next(); // { value: 3, done: true }
+  
+  Đặc điểm của một generator function:
+  Hàm có thể dừng giữa chừng và tiếp tục sau.
+  Mỗi lần gọi, hàm sẽ được thực thi cho đến khi gặp lệnh yield hoặc return.
+
+
+  Generator có 3 hàm:
+Method Description Return
+next()
+
+Tiếp tục thực thi hàm cho đến khi gặp yield /
+return
+
+{ value: 2, done: true/false }
+return() Dừng generatorfunction và return kết quả. { value: 3, done: true }
+throw() Dừng generatorfunction và trả về lỗi.
+
+{ value: undefined, done: true
+}
+
+Easy Frontend - JS Generator 🎉 10/17/2020
+
+2 / 5
+2. Một vài ví dụ đơn giản về generator
+Tạo ID tăng dần
+
+// định nghĩa một generator function
+function* generateId() {
+let i = 0;
+while (true) {
+i++;
+yield i;
+}
+}
+// khi gọi generator function, thì sẽ được trả về một generator object
+// tức newId là một generator, nên ta có thể dùng hàm .next(), .return()
+và .throw()
+const newId = generateId();
+console.log(newId.next()); // { value: 1, done: false }
+console.log(newId.next()); // { value: 2, done: false }
+console.log(newId.next()); // { value: 3, done: false }
+
+Easy Frontend - JS Generator 🎉 10/17/2020
+
+
+function* generateId() {
+  let i = 0;
+  while (true) {
+  i++;
+  yield i;
+  }
+}
+const newId = generateId();
+console.log(newId.next()); // { value: 1, done: false }
+console.log(newId.next()); // { value: 2, done: false }
+console.log(newId.next()); // { value: 3, done: false }
